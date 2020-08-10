@@ -41,5 +41,3 @@ CREATE TABLE "titles"
  "title_id" varchar(5),
  "title"    text
 );
-
-Select * from employees
