@@ -11,3 +11,10 @@ JOIN employees as e on dm.emp_no = e.emp_no
 SELECT de.emp_no, last_name, first_name, dept_name FROM dept_emp as de
 JOIN employees as e on de.emp_no = e.emp_no
 JOIN departments as d on de.dept_no = d.dept_no
+-- 5. List first name, last name, and sex for employees whose first name is "Hercules" and last names begin with "B."
+SELECT first_name, last_name, sex from employees WHERE first_name = 'Hercules' and last_name LIKE 'B%'
+-- 6. List all employees in the Sales department, including their employee number, last name, first name, and department name.
+SELECT e.emp_no, last_name, first_name, dept_name FROM employees as e
+JOIN dept_emp as de on e.emp_no = de.emp_no
+JOIN departments as d on de.dept_no = d.dept_no
+WHERE dept_name = 'Sales'
