@@ -1,18 +1,3 @@
-<style>
-.flex-container{
-    width: 100%;
-    margin: 0 auto;
-    display: -webkit-flex; /* Safari */     
-    display: flex; /* Standard syntax */
-}
-.flex-container .column{
-    padding: 10px;
-    -webkit-flex: 1; /* Safari */
-    -ms-flex: 1; /* IE 10 */
-    flex: 1; /* Standard syntax */
-}
-</style>
-
 <div class="flex-container">
     <div class="column">
         <h1>sql-challenge</h1>
