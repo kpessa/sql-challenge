@@ -15,15 +15,12 @@ CREATE TABLE "departments"
  "dept_name" text
 );
 
-Drop Table dept_emp;
-
 CREATE TABLE "dept_emp"
 (
  	"emp_no"  integer,
 	"dept_no" varchar(4)
 );
 
-Drop table dept_manager;
 CREATE TABLE "dept_manager"
 (
  	"dept_no" varchar(4),
