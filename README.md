@@ -15,7 +15,7 @@
 ### 2. Creating tables in PostGreSQL
 <details><summary>Schema for creatings tables in PostGreSQL </summary>
 
-```sql
+```PostGreSQL
 ​CREATE TABLE "employees"
 (
  "emp_no"       integer Primary Key,
@@ -64,47 +64,47 @@ CREATE TABLE "titles"
 ---
 ### 3. Querying the PostGreSQL Database
 1. List the following details of each employee: employee number, last name, first name, sex, and salary.
-```postgresql
+```PostGreSQL
 SELECT e.emp_no, last_name, first_name, sex, salary 
 FROM employees as e 
 JOIN salaries as s 
 ON e.emp_no = s.emp_no 
 ```
 2. List first name, last name, and hire date for employees who were hired in 1986.
-```postgresql
+```PostGreSQL
 SELECT first_name, last_name, hire_date 
 FROM employees 
 WHERE extract(year from hire_date) = 1986
 ```
 3. List the manager of each department with the following information: department number, department name, the manager's employee number, last name, first name.
-```postgresql
+```PostGreSQL
 SELECT dm.dept_no, dept_name, dm.emp_no, last_name, first_name 
 FROM dept_manager as dm
 JOIN departments as d on dm.dept_no = d.dept_no
 JOIN employees as e on dm.emp_no = e.emp_no
 ```
 4. List the department of each employee with the following information: employee number, last name, first name, and department name.
-```postgresql
+```PostGreSQL
 SELECT de.emp_no, last_name, first_name, dept_name 
 FROM dept_emp as de
 JOIN employees as e on de.emp_no = e.emp_no
 JOIN departments as d on de.dept_no = d.dept_no
 ```
 5. List first name, last name, and sex for employees whose first name is "Hercules" and last names begin with "B."
-```postgresql
+```PostGreSQL
 SELECT first_name, last_name, sex 
 FROM employees 
 WHERE first_name = 'Hercules' and last_name LIKE 'B%'
 ```
 6. List all employees in the Sales department, including their employee number, last name, first name, and department name.
-```postgresql
+```PostGreSQL
 SELECT e.emp_no, last_name, first_name, dept_name 
 FROM employees as e
 JOIN dept_emp as de on e.emp_no = de.emp_no
 JOIN departments as d on de.dept_no = d.dept_no
 ```
 7. List all employees in the Sales and Development departments, including their employee number, last name, first name, and department name.
-```postgresql
+```PostGreSQL
 SELECT e.emp_no, last_name, first_name, dept_name 
 FROM employees as e
 JOIN dept_emp as de on e.emp_no = de.emp_no
@@ -112,14 +112,14 @@ JOIN departments as d on de.dept_no = d.dept_no
 WHERE dept_name = 'Sales' or dept_name = 'Development'
 ```
 8. In descending order, list the frequency count of employee last names, i.e., how many employees share each last name.
-```postgresql
+```PostGreSQL
 SELECT last_name, COUNT(last_name) as frequency 
 FROM employees 
 GROUP BY last_name
 ORDER BY frequency desc
 ```
 9. BONUS: Querying yourself with emp_no = 499942
-```postgresql
+```PostGreSQL
 SELECT e.emp_no, first_name, last_name, sex, hire_date, salary, title
 FROM employees as e
 JOIN salaries as s on s.emp_no = e.emp_no
